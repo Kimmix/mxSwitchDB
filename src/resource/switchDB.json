@@ -1,0 +1,16 @@
+[
+  {
+    "name": "gateron ink red",
+    "type": "linear",
+    "actuation": 50,
+    "bottom": 67,
+    "travel": 4
+  },
+  {
+    "name": "gateron ink black",
+    "type": "linear",
+    "actuation": 60,
+    "bottom": 80,
+    "travel": 4
+  }
+]

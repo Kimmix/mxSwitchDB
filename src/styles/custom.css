@@ -1,0 +1,25 @@
+.card-ui {
+  background-color: yellow;
+  padding: 1em;
+  margin: 1.5em;
+}
+
+.card-ui .header {
+  font-size: 2em;
+  font-weight: bold;
+  text-transform:capitalize;
+}
+
+.card-ui .subHeader {
+  font-size: 1em;
+}
+
+.card-ui .desc {
+  font-size: 1.7em;
+}
+
+.responsive-img {
+  max-height: 500px;
+  height: 100%;
+  width: auto;
+}
