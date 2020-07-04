@@ -4,10 +4,14 @@
   margin: 1.5em;
 }
 
+*:focus {
+  outline: none;
+}
+
 .card-ui .header {
   font-size: 2em;
   font-weight: bold;
-  text-transform:capitalize;
+  text-transform: capitalize;
 }
 
 .card-ui .subHeader {
