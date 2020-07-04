@@ -1,11 +1,11 @@
+*:focus {
+  outline: none;
+}
+
 .card-ui {
   background-color: yellow;
   padding: 1em;
   margin: 1.5em;
-}
-
-*:focus {
-  outline: none;
 }
 
 .card-ui .header {
@@ -23,7 +23,7 @@
 }
 
 .responsive-img {
-  max-height: 500px;
+  max-height: 150px;
   height: 100%;
   width: auto;
 }

@@ -1,16 +1,38 @@
 [
   {
+    "id": 0,
     "name": "gateron ink red",
     "type": "linear",
     "actuation": 50,
     "bottom": 67,
-    "travel": 4
+    "travel": 4,
+    "imgSrc": "https://www.1upkeyboards.com/wp-content/uploads/2019/12/Switches-Gateron-INK-Red-Front-510x510.jpg"
   },
   {
+    "id": 1,
     "name": "gateron ink black",
     "type": "linear",
     "actuation": 60,
     "bottom": 80,
-    "travel": 4
+    "travel": 4,
+    "imgSrc": "https://www.1upkeyboards.com/wp-content/uploads/2019/12/Switches-Gateron-INK-Black-Front-510x510.jpg"
+  },
+  {
+    "id": 2,
+    "name": "gateron ink yellow",
+    "type": "linear",
+    "actuation": 60,
+    "bottom": 67,
+    "travel": 3.4,
+    "imgSrc": "https://www.1upkeyboards.com/wp-content/uploads/2019/12/Switches-Gateron-INK-Yellow-Front-510x510.jpg"
+  },
+  {
+    "id": 3,
+    "name": "gateron ink blue",
+    "type": "clicky",
+    "actuation": 75,
+    "bottom": 60,
+    "travel": 4,
+    "imgSrc": "https://www.1upkeyboards.com/wp-content/uploads/2019/12/Switches-Gateron-INK-Blue-Front-510x510.jpg"
   }
 ]

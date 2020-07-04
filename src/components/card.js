@@ -2,7 +2,7 @@ import React from "react"
 
 export default function Card(props) {
   return <div className="card-ui">
-    <img src="https://mechanicalkeyboards.com/switches/images/Cherry_MX_Blue_Switch_5a318_thumb.png" alt="MX Blue" class="responsive-img"></img>
+    <img src={props.data.imgSrc || `https://via.placeholder.com/150?text=${props.data.name}`} alt={props.data.name} class="responsive-img"></img>
     <p className="header">{props.data.name || 'nan'}</p>
     <p className="subHeader">Actuation</p>
     <p className="desc">{props.data.actuation + 'g' || 'nan'}</p>

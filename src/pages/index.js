@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import SwitchCarousel from "./switchCarousel"
+import SwitchCarousel from "../components/switchCarousel"
 
 export default class Home extends Component {
   render() {
