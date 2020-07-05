@@ -34,5 +34,68 @@
     "bottom": 60,
     "travel": 4,
     "imgSrc": "https://www.1upkeyboards.com/wp-content/uploads/2019/12/Switches-Gateron-INK-Blue-Front-510x510.jpg"
+  },
+  {
+    "id": 4,
+    "name": "cherry mx blue",
+    "type": "clicky",
+    "actuation": 55,
+    "bottom": 60,
+    "travel": 4,
+    "imgSrc": "~/static/img/Cherry_MX_Blue_Switch"
+  },
+  {
+    "id": 5,
+    "name": "cherry mx brown",
+    "type": "tactile",
+    "actuation": 55,
+    "bottom": 60,
+    "travel": 4,
+    "imgSrc": null
+  },
+  {
+    "id": 6,
+    "name": "cherry mx red",
+    "type": "linear",
+    "actuation": 45,
+    "bottom": 60,
+    "travel": 4,
+    "imgSrc": null
+  },
+  {
+    "id": 7,
+    "name": "cherry mx black",
+    "type": "linear",
+    "actuation": 60,
+    "bottom": 90,
+    "travel": 4,
+    "imgSrc": null
+  },
+  {
+    "id": 8,
+    "name": "cherry mx green",
+    "type": "clicky",
+    "actuation": 80,
+    "bottom": 90,
+    "travel": 4,
+    "imgSrc": null
+  },
+  {
+    "id": 9,
+    "name": "cherry mx clear",
+    "type": "tactile",
+    "actuation": 65,
+    "bottom": 90,
+    "travel": 4,
+    "imgSrc": null
+  },
+  {
+    "id": 10,
+    "name": "cherry mx silver",
+    "type": "linear",
+    "actuation": 45,
+    "bottom": 70,
+    "travel": 3.40,
+    "imgSrc": null
   }
 ]
