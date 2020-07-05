@@ -28,13 +28,25 @@ export default class SwitchCarousel extends Component {
     const { isDebug, switchData } = this.state;
     var settings = {
       speed: 500,
-      lazyLoad: true,
-      slidesToShow: 4,
+      // lazyLoad: true,
+      slidesToShow: 8,
       swipeToSlide: true,
       initialSlide: 0,
       responsive: [
         {
-          breakpoint: 960,
+          breakpoint: 1450,
+          settings: {
+            slidesToShow: 5,
+          }
+        },
+        {
+          breakpoint: 1024,
+          settings: {
+            slidesToShow: 4,
+          }
+        },
+        {
+          breakpoint: 768,
           settings: {
             slidesToShow: 3,
           }
@@ -46,7 +58,7 @@ export default class SwitchCarousel extends Component {
           }
         },
         {
-          breakpoint: 480,
+          breakpoint: 425,
           settings: {
             slidesToShow: 1,
           }
@@ -74,19 +86,22 @@ export default class SwitchCarousel extends Component {
     }
 
 
-    return (
-      <div>
-        <div class="row">
-          <div class="six columns">
-            <input class="u-full-width" type="text" placeholder="Search" value={this.state.search} onChange={(e) => { this.handleChange(e) }} />
-          </div>
+    return (<div>
+      <div className="row">
+        <div className="six columns">
+          <input className="u-full-width" type="text" placeholder="Search" value={this.state.search} onChange={(e) => { this.handleChange(e) }} />
         </div>
-        <div class="row">
-          <button type="button" className={`${this.state.isDebug ? "button-primary" : ""}`}
-            onClick={() => this.setState({ isDebug: !this.state.isDebug })}>Debug mode</button>
+        <div className="six columns">
+        <button type="button" className={`${this.state.isDebug ? "button-primary" : ""}`}
+          onClick={() => this.setState({ isDebug: !this.state.isDebug })}>Debug mode</button>
+        </div>
+      </div>
+      <div className="row">
+        <div className="twelve columns">
           {mode}
         </div>
       </div>
+    </div>
     );
   }
 }

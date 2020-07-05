@@ -1,13 +1,16 @@
 import React, { Component } from "react"
+import Navbar from "../components/navbar"
 import SwitchCarousel from "../components/switchCarousel"
 
 export default class Home extends Component {
   render() {
-    return (
-      <div>
-        <h1>MX Switch DB</h1>
+    return (<div>
+      <Navbar />
+      <main>
+        {/* <p>Hello world</p> */}
         <SwitchCarousel />
-      </div>
+      </main>
+    </div>
     )
   }
 }

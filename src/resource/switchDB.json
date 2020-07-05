@@ -47,7 +47,7 @@
     "actuation": 55,
     "bottom": 60,
     "travel": 4,
-    "imgSrc": "/src/img/Cherry_MX_Blue_Switch.png"
+    "imgSrc": "https://mechanicalkeyboards.com/switches/images/Cherry_MX_Blue_Switch_5a318_thumb.png"
   },
   {
     "id": 5,
@@ -57,7 +57,7 @@
     "actuation": 55,
     "bottom": 60,
     "travel": 4,
-    "imgSrc": "/src/img/Cherry_MX_Brown_Switch.png"
+    "imgSrc": "https://mechanicalkeyboards.com/switches/images/Cherry_MX_Brown_Switch_37dd6_thumb.png"
   },
   {
     "id": 6,
@@ -67,7 +67,7 @@
     "actuation": 45,
     "bottom": 60,
     "travel": 4,
-    "imgSrc": "src/img/Cherry_MX_Red_Switch.png"
+    "imgSrc": "https://mechanicalkeyboards.com/switches/images/Cherry_MX_Red_Switch_eb4bf_thumb.png"
   },
   {
     "id": 7,
@@ -77,7 +77,7 @@
     "actuation": 60,
     "bottom": 90,
     "travel": 4,
-    "imgSrc": null
+    "imgSrc": "https://mechanicalkeyboards.com/switches/images/Cherry_MX_Black_Switch_30ef1_thumb.png"
   },
   {
     "id": 8,
@@ -87,7 +87,7 @@
     "actuation": 80,
     "bottom": 90,
     "travel": 4,
-    "imgSrc": null
+    "imgSrc": "https://mechanicalkeyboards.com/switches/images/Cherry_MX_Green_Switch_e2f01_thumb.png"
   },
   {
     "id": 9,
@@ -97,7 +97,7 @@
     "actuation": 65,
     "bottom": 90,
     "travel": 4,
-    "imgSrc": null
+    "imgSrc": "https://mechanicalkeyboards.com/switches/images/Cherry_MX_Clear_Switch_19a92_thumb.png"
   },
   {
     "id": 10,
@@ -107,6 +107,6 @@
     "actuation": 45,
     "bottom": 70,
     "travel": 3.40,
-    "imgSrc": null
+    "imgSrc": "https://mechanicalkeyboards.com/switches/images/Cherry_MX_Silver_Switch_37feb_thumb.png"
   }
 ]
