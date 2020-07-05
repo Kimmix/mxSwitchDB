@@ -27,31 +27,28 @@ export default class SwitchCarousel extends Component {
   render() {
     const { isDebug, switchData } = this.state;
     var settings = {
-      infinite: true,
       speed: 500,
+      lazyLoad: true,
       slidesToShow: 4,
-      slidesToScroll: 4,
+      swipeToSlide: true,
       initialSlide: 0,
       responsive: [
         {
           breakpoint: 960,
           settings: {
             slidesToShow: 3,
-            slidesToScroll: 3,
           }
         },
         {
-          breakpoint: 720,
+          breakpoint: 600,
           settings: {
             slidesToShow: 2,
-            slidesToScroll: 2,
           }
         },
         {
           breakpoint: 480,
           settings: {
             slidesToShow: 1,
-            slidesToScroll: 1
           }
         }
       ]

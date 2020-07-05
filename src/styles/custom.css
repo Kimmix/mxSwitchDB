@@ -18,6 +18,11 @@ body {
   margin: 1.5em;
 }
 
+.img-container {
+  height: 100px;
+  max-height: 100px;
+}
+
 .card-ui .header {
   font-size: 1.5em;
   font-weight: bold;

@@ -2,6 +2,7 @@
   {
     "id": 0,
     "name": "gateron ink red",
+    "manufacturer": "gateron",
     "type": "linear",
     "actuation": 50,
     "bottom": 67,
@@ -11,6 +12,7 @@
   {
     "id": 1,
     "name": "gateron ink black",
+    "manufacturer": "gateron",
     "type": "linear",
     "actuation": 60,
     "bottom": 80,
@@ -20,6 +22,7 @@
   {
     "id": 2,
     "name": "gateron ink yellow",
+    "manufacturer": "gateron",
     "type": "linear",
     "actuation": 60,
     "bottom": 67,
@@ -29,6 +32,7 @@
   {
     "id": 3,
     "name": "gateron ink blue",
+    "manufacturer": "gateron",
     "type": "clicky",
     "actuation": 75,
     "bottom": 60,
@@ -38,33 +42,37 @@
   {
     "id": 4,
     "name": "cherry mx blue",
+    "manufacturer": "cherry",
     "type": "clicky",
     "actuation": 55,
     "bottom": 60,
     "travel": 4,
-    "imgSrc": "~/static/img/Cherry_MX_Blue_Switch"
+    "imgSrc": "/src/img/Cherry_MX_Blue_Switch.png"
   },
   {
     "id": 5,
     "name": "cherry mx brown",
+    "manufacturer": "cherry",
     "type": "tactile",
     "actuation": 55,
     "bottom": 60,
     "travel": 4,
-    "imgSrc": null
+    "imgSrc": "/src/img/Cherry_MX_Brown_Switch.png"
   },
   {
     "id": 6,
     "name": "cherry mx red",
+    "manufacturer": "cherry",
     "type": "linear",
     "actuation": 45,
     "bottom": 60,
     "travel": 4,
-    "imgSrc": null
+    "imgSrc": "src/img/Cherry_MX_Red_Switch.png"
   },
   {
     "id": 7,
     "name": "cherry mx black",
+    "manufacturer": "cherry",
     "type": "linear",
     "actuation": 60,
     "bottom": 90,
@@ -74,6 +82,7 @@
   {
     "id": 8,
     "name": "cherry mx green",
+    "manufacturer": "cherry",
     "type": "clicky",
     "actuation": 80,
     "bottom": 90,
@@ -83,6 +92,7 @@
   {
     "id": 9,
     "name": "cherry mx clear",
+    "manufacturer": "cherry",
     "type": "tactile",
     "actuation": 65,
     "bottom": 90,
@@ -92,6 +102,7 @@
   {
     "id": 10,
     "name": "cherry mx silver",
+    "manufacturer": "cherry",
     "type": "linear",
     "actuation": 45,
     "bottom": 70,
