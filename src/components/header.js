@@ -1,9 +1,7 @@
-import React, { useState } from "react"
+import React from "react"
 import { Link } from "gatsby"
 
 function Header() {
-  const [search, setSearch] = useState("")
-
   return (
     <header>
       <Link
@@ -17,13 +15,6 @@ function Header() {
       >
         MX Switch DB
       </Link>
-      <input
-        type="text"
-        style={{ margin: "1em 0" }}
-        placeholder="Search"
-        value={search}
-        onChange={e => setSearch(e.target.value)}
-      />
     </header>
   )
 }
