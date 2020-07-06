@@ -1,16 +1,14 @@
-import React, { Component } from "react"
-import Navbar from "../components/navbar"
-import SwitchCarousel from "../components/switchCarousel"
+import React from "react"
 
-export default class Home extends Component {
-  render() {
-    return (<div>
-      <Navbar />
-      <main>
-        {/* <p>Hello world</p> */}
-        <SwitchCarousel />
-      </main>
-    </div>
-    )
-  }
-}
+import Layout from "../components/layout"
+import SearchFilter from "../components/searchFilter"
+import SwitchList from "../components/switchList"
+
+const IndexPage = () => (
+  <Layout>
+    <SearchFilter />
+    <SwitchList />
+  </Layout>
+)
+
+export default IndexPage

@@ -1,14 +1,14 @@
 {
-  "name": "gatsby-starter-hello-world",
-  "private": true,
-  "description": "A simplified bare-bones starter for Gatsby",
+  "name": "mx-switch-db",
+  "private": false,
+  "description": "A list of MX Switches",
   "version": "0.1.0",
   "license": "0BSD",
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
-    "start": "npm run develop",
+    "start": "gatsby develop -o",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
@@ -20,11 +20,10 @@
     "gatsby-source-filesystem": "^2.3.18",
     "gatsby-transformer-sharp": "^2.5.10",
     "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "react-slick": "^0.26.1",
-    "slick-carousel": "^1.8.1"
+    "react-dom": "^16.12.0"
   },
   "devDependencies": {
+    "husky": "^4.2.5",
     "prettier": "2.0.5"
   },
   "repository": {
@@ -33,5 +32,12 @@
   },
   "bugs": {
     "url": "https://github.com/gatsbyjs/gatsby/issues"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm test",
+      "pre-push": "npm test",
+      "...": "..."
+    }
   }
 }

@@ -1,0 +1,8 @@
+.float-icon {
+  z-index: 999;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  padding: 0.5em;
+  border: none;
+}
