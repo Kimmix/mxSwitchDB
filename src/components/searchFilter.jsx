@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react"
 import { navigate } from "gatsby"
-import { debounce } from "throttle-debounce"
 
 import SwitchList from "./switchList"
 
@@ -12,8 +11,6 @@ const SearchFilter = () => {
     manufacturer: "",
     type: "",
   })
-  // const [manufacturer, setManufacturer] = useState("")
-  // const [type, setType] = useState("")
 
   const useDebounce = (value, timeout) => {
     const [state, setState] = useState(value)
@@ -24,26 +21,22 @@ const SearchFilter = () => {
     return state
   }
 
-  // When props changes
-  useEffect(() => {
+  const setQueryParam = () => {
     let queryParam = "?"
     for (const property in searchQuery) {
       if (searchQuery[property]) {
-        console.log(`${property}: ${searchQuery[property]}`)
         queryParam += `${property}=${searchQuery[property]}&`
       }
     }
     if (queryParam.slice(queryParam.length - 1) === "&") {
       queryParam = queryParam.slice(0, -1)
     }
-    navigate(queryParam)
-    // if (searchQuery.search) {
-    //   navigate("?search=" + searchQuery.search)
-    // } else if (searchQuery.manufacturer) {
-    //   navigate("?manufacturer=" + searchQuery.manufacturer)
-    // } else {
-    //   navigate("?")
-    // }
+    return queryParam
+  }
+
+  // When props changes
+  useEffect(() => {
+    navigate(setQueryParam())
   }, [useDebounce(searchQuery, 500)])
 
   const handleChange = e => {

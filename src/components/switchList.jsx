@@ -14,19 +14,32 @@ const SwitchList = () => {
     manufacturer: StringParam,
     type: StringParam,
   })
-  const {
-    search: searchQuery,
-    manufacturer: manufacturerQuery,
-    type: typeQuery,
-  } = query
+
+  function search(list) {
+    return Object.keys(this).every(key => list[key] === this[key])
+  }
 
   useEffect(() => {
-    if (searchQuery) {
-      setSwitchData(switchDB.filter(s => s.name.includes(searchQuery)))
-    } else {
-      setSwitchData(switchDB)
-    }
-  }, [searchQuery])
+    // var result = switchDB.filter(search, query)
+    // function search(user) {
+    //   return Object.keys(this).every(key => user[key] === this[key])
+    // }
+    // console.log(result)
+
+    // setSwitchData(switchDB.filter(s => s.name.includes(searchQuery)))
+
+    setSwitchData(
+      switchDB.filter(function (item) {
+        for (var key in query) {
+          if (item.name.includes(query.search)) {
+            
+            return true
+          }
+        }
+        return false
+      })
+    )
+  }, [query])
 
   let mode
   if (isDebug) {
