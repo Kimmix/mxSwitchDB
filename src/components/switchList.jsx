@@ -9,36 +9,46 @@ import "../css/switchList.css"
 const SwitchList = () => {
   const [isDebug, setDebugMode] = useState(false)
   const [switchData, setSwitchData] = useState(switchDB)
-  const [query, setQuery] = useQueryParams({
+  const [query] = useQueryParams({
     search: StringParam,
     manufacturer: StringParam,
     type: StringParam,
   })
 
-  function search(list) {
-    return Object.keys(this).every(key => list[key] === this[key])
+  const filterData = (data, param) => {
+    const { search, ...filterKey } = param
+    data = data.filter(function (item) {
+      for (let key in filterKey) {
+        if (filterKey[key] !== undefined && item[key] !== filterKey[key]) {
+          return false
+        }
+      }
+      return true
+    })
+    if (search) {
+      data = data.filter(s => s.name.includes(search))
+    }
+    return data
   }
 
   useEffect(() => {
-    // var result = switchDB.filter(search, query)
-    // function search(user) {
-    //   return Object.keys(this).every(key => user[key] === this[key])
-    // }
-    // console.log(result)
-
+    setSwitchData(filterData(switchDB, query))
     // setSwitchData(switchDB.filter(s => s.name.includes(searchQuery)))
-
-    setSwitchData(
-      switchDB.filter(function (item) {
-        for (var key in query) {
-          if (item.name.includes(query.search)) {
-            
-            return true
-          }
-        }
-        return false
-      })
-    )
+    // if (query.search) {
+    //   return item.name.includes(query.search)
+    // } else {
+    //   return false
+    // }
+    // setSwitchData(
+    //   switchDB.filter(function (item) {
+    //     for (var key in query) {
+    //       if (query[key] !== undefined && item[key] !== query[key]) {
+    //         return false
+    //       }
+    //     }
+    //     return true
+    //   })
+    // )
   }, [query])
 
   let mode
