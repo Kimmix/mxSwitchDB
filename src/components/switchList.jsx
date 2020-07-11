@@ -33,22 +33,6 @@ const SwitchList = () => {
 
   useEffect(() => {
     setSwitchData(filterData(switchDB, query))
-    // setSwitchData(switchDB.filter(s => s.name.includes(searchQuery)))
-    // if (query.search) {
-    //   return item.name.includes(query.search)
-    // } else {
-    //   return false
-    // }
-    // setSwitchData(
-    //   switchDB.filter(function (item) {
-    //     for (var key in query) {
-    //       if (query[key] !== undefined && item[key] !== query[key]) {
-    //         return false
-    //       }
-    //     }
-    //     return true
-    //   })
-    // )
   }, [query])
 
   let mode
@@ -65,7 +49,6 @@ const SwitchList = () => {
       </button>
       <div className="switchList-layout">
         {mode}
-        {/* <button onClick={onClick}>Pew</button> */}
       </div>
     </>
   )
