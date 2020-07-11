@@ -21,11 +21,11 @@ const SearchFilter = () => {
     return state
   }
 
-  const setQueryParam = () => {
+  const setQueryParam = (param) => {
     let queryParam = "?"
-    for (const property in searchQuery) {
-      if (searchQuery[property]) {
-        queryParam += `${property}=${searchQuery[property]}&`
+    for (const property in param) {
+      if (param[property]) {
+        queryParam += `${property}=${param[property]}&`
       }
     }
     if (queryParam.slice(queryParam.length - 1) === "&") {
@@ -36,7 +36,7 @@ const SearchFilter = () => {
 
   // When props changes
   useEffect(() => {
-    navigate(setQueryParam())
+    navigate(setQueryParam(searchQuery))
   }, [useDebounce(searchQuery, 500)])
 
   const handleChange = e => {
@@ -61,9 +61,8 @@ const SearchFilter = () => {
           />
           <select
             name="manufacturer"
-            id="manufacturer"
             value={searchQuery.manufacturer}
-            onChange={handleChange}
+            onBlur={handleChange}
           >
             <option value="">Manufacturer...</option>
             <option value="gateron">Gateron</option>
@@ -71,9 +70,8 @@ const SearchFilter = () => {
           </select>
           <select
             name="type"
-            id="type"
             value={searchQuery.type}
-            onChange={handleChange}
+            onBlur={handleChange}
           >
             <option value="">Type...</option>
             <option value="clicky">Clicky</option>

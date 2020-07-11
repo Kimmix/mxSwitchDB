@@ -18,7 +18,7 @@ const SwitchList = () => {
   const filterData = (data, param) => {
     const { search, ...filterKey } = param
     data = data.filter(function (item) {
-      for (let key in filterKey) {
+      for (const key in filterKey) {
         if (filterKey[key] !== undefined && item[key] !== filterKey[key]) {
           return false
         }
