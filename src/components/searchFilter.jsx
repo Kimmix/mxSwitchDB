@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react"
 import { navigate } from "gatsby"
 
 import SwitchList from "./switchList"
-
+import useDebounce from "./use-debounce"
 import "../css/searchFilter.css"
 
 const SearchFilter = () => {
@@ -12,16 +12,9 @@ const SearchFilter = () => {
     type: "",
   })
 
-  const useDebounce = (value, timeout) => {
-    const [state, setState] = useState(value)
-    useEffect(() => {
-      const handler = setTimeout(() => setState(value), timeout)
-      return () => clearTimeout(handler)
-    }, [value, timeout])
-    return state
-  }
+  const debouncedSearchQuery = useDebounce(searchQuery, 500)
 
-  const setQueryParam = (param) => {
+  const setQueryParam = param => {
     let queryParam = "?"
     for (const property in param) {
       if (param[property]) {
@@ -37,7 +30,7 @@ const SearchFilter = () => {
   // When props changes
   useEffect(() => {
     navigate(setQueryParam(searchQuery))
-  }, [useDebounce(searchQuery, 500)])
+  }, [debouncedSearchQuery])
 
   const handleChange = e => {
     const { name, value } = e.target
@@ -68,11 +61,7 @@ const SearchFilter = () => {
             <option value="gateron">Gateron</option>
             <option value="cherry">Cherry</option>
           </select>
-          <select
-            name="type"
-            value={searchQuery.type}
-            onBlur={handleChange}
-          >
+          <select name="type" value={searchQuery.type} onBlur={handleChange}>
             <option value="">Type...</option>
             <option value="clicky">Clicky</option>
             <option value="tactile">Tactile</option>
