@@ -2,4 +2,4 @@
 // import "./src/styles/normalize.css"
 // import "./src/styles/skeleton.css"
 import "./src/css/style.css"
-import "./src/css/flexboxgrid.css"
+import "./src/css/flexboxgrid.min.css"

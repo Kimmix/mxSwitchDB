@@ -27,10 +27,9 @@ const SearchFilter = () => {
     return queryParam
   }
 
-  // When props changes
   useEffect(() => {
     navigate(setQueryParam(searchQuery))
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [debouncedSearchQuery])
 
   const handleChange = e => {
