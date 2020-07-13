@@ -12,7 +12,19 @@ const SearchFilter = () => {
     type: "",
   })
 
+  const handleChange = e => {
+    const { name, value } = e.target
+    setSearchQuery(prevState => ({
+      ...prevState,
+      [name]: value,
+    }))
+  }
+
   const debouncedSearchQuery = useDebounce(searchQuery, 500)
+  useEffect(() => {
+    navigate(setQueryParam(searchQuery))
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [debouncedSearchQuery])
 
   const setQueryParam = param => {
     let queryParam = "?"
@@ -25,19 +37,6 @@ const SearchFilter = () => {
       queryParam = queryParam.slice(0, -1)
     }
     return queryParam
-  }
-
-  useEffect(() => {
-    navigate(setQueryParam(searchQuery))
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [debouncedSearchQuery])
-
-  const handleChange = e => {
-    const { name, value } = e.target
-    setSearchQuery(prevState => ({
-      ...prevState,
-      [name]: value,
-    }))
   }
 
   return (
