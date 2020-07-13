@@ -42,7 +42,8 @@ const SwitchList = () => {
   if (isDebug) {
     mode = <DebugMode dataList={switchData} queryTime={queryTime} />
   } else {
-    mode = <p>List</p>
+    let { search, ...bread } = query
+    mode = <>{Object.values(bread)}</>
   }
 
   return (
