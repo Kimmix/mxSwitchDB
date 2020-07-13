@@ -9,6 +9,7 @@ import "../css/switchList.css"
 const SwitchList = () => {
   const [isDebug, setDebugMode] = useState(false)
   const [switchData, setSwitchData] = useState(switchDB)
+  const [queryTime, setQueryTime] = useState(null)
   const [query] = useQueryParams({
     search: StringParam,
     manufacturer: StringParam,
@@ -17,27 +18,29 @@ const SwitchList = () => {
 
   const filterData = (data, param) => {
     const { search, ...filterKey } = param
-    data = data.filter(function (item) {
+    return data.filter(function (item) {
       for (const key in filterKey) {
         if (filterKey[key] !== undefined && item[key] !== filterKey[key]) {
           return false
         }
       }
-      return true
+      if (search) {
+        return item.name.includes(search)
+      } else {
+        return true
+      }
     })
-    if (search) {
-      data = data.filter(s => s.name.includes(search))
-    }
-    return data
   }
 
   useEffect(() => {
+    let start = performance.now()
     setSwitchData(filterData(switchDB, query))
+    setQueryTime(performance.now() - start)
   }, [query])
 
   let mode
   if (isDebug) {
-    mode = <DebugMode dataList={switchData} />
+    mode = <DebugMode dataList={switchData} queryTime={queryTime} />
   } else {
     mode = <p>List</p>
   }
@@ -47,9 +50,7 @@ const SwitchList = () => {
       <button className="float-icon" onClick={() => setDebugMode(!isDebug)}>
         <img src={isDebug ? blueBug : orangeBug} alt="Debug icon" />
       </button>
-      <div className="switchList-layout">
-        {mode}
-      </div>
+      <div className="switchList-layout">{mode}</div>
     </>
   )
 }

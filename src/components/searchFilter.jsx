@@ -30,6 +30,7 @@ const SearchFilter = () => {
   // When props changes
   useEffect(() => {
     navigate(setQueryParam(searchQuery))
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [debouncedSearchQuery])
 
   const handleChange = e => {
@@ -55,13 +56,13 @@ const SearchFilter = () => {
           <select
             name="manufacturer"
             value={searchQuery.manufacturer}
-            onBlur={handleChange}
+            onChange={handleChange}
           >
             <option value="">Manufacturer...</option>
             <option value="gateron">Gateron</option>
             <option value="cherry">Cherry</option>
           </select>
-          <select name="type" value={searchQuery.type} onBlur={handleChange}>
+          <select name="type" value={searchQuery.type} onChange={handleChange}>
             <option value="">Type...</option>
             <option value="clicky">Clicky</option>
             <option value="tactile">Tactile</option>
