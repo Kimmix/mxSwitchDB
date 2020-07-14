@@ -1,5 +1,1 @@
-// import "./src/styles/custom.css"
-// import "./src/styles/normalize.css"
-// import "./src/styles/skeleton.css"
 import "./src/css/style.css"
-import "./src/css/flexboxgrid.min.css"

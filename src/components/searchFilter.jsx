@@ -12,6 +12,8 @@ const SearchFilter = () => {
     type: "",
   })
 
+  const [sorting, setSorting] = useState("")
+
   const handleChange = e => {
     const { name, value } = e.target
     setSearchQuery(prevState => ({
@@ -42,30 +44,60 @@ const SearchFilter = () => {
   return (
     <>
       <div className="search-layout">
-        <p>Search filter</p>
-        <form>
-          <input
-            name="search"
-            type="text"
-            placeholder="Search"
-            value={searchQuery.search}
-            onChange={handleChange}
-          />
-          <select
-            name="manufacturer"
-            value={searchQuery.manufacturer}
-            onChange={handleChange}
-          >
-            <option value="">Manufacturer...</option>
-            <option value="gateron">Gateron</option>
-            <option value="cherry">Cherry</option>
-          </select>
-          <select name="type" value={searchQuery.type} onChange={handleChange}>
-            <option value="">Type...</option>
-            <option value="clicky">Clicky</option>
-            <option value="tactile">Tactile</option>
-            <option value="linear">Linear</option>
-          </select>
+        <p style={{ margin: "6px 0", color: "#4f4f4f", fontSize: "0.9em" }}>
+          Search filter
+        </p>
+        <form className="form-container">
+          <div className="row">
+            <input
+              name="search"
+              className="myStyle"
+              type="text"
+              placeholder="Search"
+              value={searchQuery.search}
+              onChange={handleChange}
+            />
+          </div>
+          <div className="row" style={{ justifyContent: "space-between" }}>
+            <div className="left-row">
+              <select
+                name="manufacturer"
+                className="myStyle"
+                value={searchQuery.manufacturer}
+                onChange={handleChange}
+              >
+                <option value="">Select manufacturer</option>
+                <option value="gateron">Gateron</option>
+                <option value="cherry">Cherry</option>
+              </select>
+              <select
+                name="type"
+                className="myStyle"
+                value={searchQuery.type}
+                onChange={handleChange}
+              >
+                <option value="">Select type</option>
+                <option value="clicky">Clicky</option>
+                <option value="tactile">Tactile</option>
+                <option value="linear">Linear</option>
+              </select>
+            </div>
+            <div className="right-row">
+              <select
+                name="sort"
+                className="myStyle"
+                style={{ borderRadius: "10px" }}
+                value={sorting}
+                onChange={e => {
+                  setSorting(e.target.value)
+                }}
+              >
+                <option value="">Sort by: A-Z</option>
+                <option value="alpha">A-Z</option>
+                <option value="id">Id</option>
+              </select>
+            </div>
+          </div>
         </form>
       </div>
       <SwitchList searchQuery={searchQuery} />

@@ -10,10 +10,10 @@ function Header() {
           fontSize: "2.5rem",
           textDecoration: "none",
           color: "black",
-          fontWeight: "bold",
+          fontWeight: "1000",
         }}
       >
-        MX Switch DB
+        MX Switch <span style={{ color: "#5F28FA" }}>DB</span>
       </Link>
     </header>
   )

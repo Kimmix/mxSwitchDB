@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
 import { useQueryParams, StringParam } from "use-query-params"
 
-import { blueBug, orangeBug } from "../resource/icons"
+import { blueBug } from "../resource/icons"
 import switchDB from "../resource/switchDB.json"
 import DebugMode from "./debugMode"
 import "../css/switchList.css"
@@ -25,7 +25,7 @@ const SwitchList = () => {
         }
       }
       if (search) {
-        return item.name.includes(search)
+        return item.name.includes(search.toLowerCase())
       } else {
         return true
       }
@@ -42,16 +42,31 @@ const SwitchList = () => {
   if (isDebug) {
     mode = <DebugMode dataList={switchData} queryTime={queryTime} />
   } else {
-    let { search, ...bread } = query
-    mode = <>{Object.values(bread)}</>
+    // let { search, ...bread } = query
+    mode = (
+      <>
+        {/* <ul className="breadcrumb">
+          {Object.values(bread)
+            .filter(v => v)
+            .map(data => (
+              <li>{data}</li>
+            ))}
+        </ul> */}
+      </>
+    )
   }
 
   return (
     <>
-      <button className="float-icon" onClick={() => setDebugMode(!isDebug)}>
-        <img src={isDebug ? blueBug : orangeBug} alt="Debug icon" />
-      </button>
       <div className="switchList-layout">{mode}</div>
+      <button className="float-button" onClick={() => setDebugMode(!isDebug)}>
+        <img
+          src={blueBug}
+          className={isDebug ? "float-icon active" : "float-icon"}
+          alt="Debug icon"
+          style={{ height: "20px" }}
+        />
+      </button>
     </>
   )
 }
