@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react"
 import { useQueryParams, StringParam } from "use-query-params"
 
+import MotionSlider from "./MotionSlider";
+import Card from "./card";
 import { blueBug } from "../../resource/icons"
 import switchDB from "../../resource/switchDB.json"
 import DebugMode from "./debugMode"
@@ -42,17 +44,16 @@ const SwitchList = () => {
   if (isDebug) {
     mode = <DebugMode dataList={switchData} queryTime={queryTime} />
   } else {
-    // let { search, ...bread } = query
     mode = (
-      <>
-        {/* <ul className="breadcrumb">
-          {Object.values(bread)
-            .filter(v => v)
-            .map(data => (
-              <li>{data}</li>
-            ))}
-        </ul> */}
-      </>
+      <div style={{margin: '0 -90px'}} >
+        <MotionSlider>
+          {switchData.map((data) => (
+          <div key={data.id}>
+            <Card data={data} />
+          </div>
+        ))}
+        </MotionSlider>
+      </div>
     )
   }
 
