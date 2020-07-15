@@ -1,11 +1,11 @@
 import React from "react"
 
 import Layout from "../components/layout"
-import SearchFilter from "../components/searchFilter"
+import SwitchFilter from "../components/SwitchFilter"
 
 const IndexPage = () => (
   <Layout>
-    <SearchFilter />
+    <SwitchFilter />
   </Layout>
 )
 

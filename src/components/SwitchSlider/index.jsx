@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react"
 import { useQueryParams, StringParam } from "use-query-params"
 
-import { blueBug } from "../resource/icons"
-import switchDB from "../resource/switchDB.json"
+import { blueBug } from "../../resource/icons"
+import switchDB from "../../resource/switchDB.json"
 import DebugMode from "./debugMode"
-import "../css/switchList.css"
+import "../../css/switchList.css"
 
 const SwitchList = () => {
   const [isDebug, setDebugMode] = useState(false)

@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react"
 import { navigate } from "gatsby"
 
-import SwitchList from "./switchList"
+import SwitchSlider from "../SwitchSlider"
 import useDebounce from "./use-debounce"
-import "../css/searchFilter.css"
+import "../../css/searchFilter.css"
 
 const SearchFilter = () => {
   const [searchQuery, setSearchQuery] = useState({
@@ -100,7 +100,7 @@ const SearchFilter = () => {
           </div>
         </form>
       </div>
-      <SwitchList searchQuery={searchQuery} />
+      <SwitchSlider searchQuery={searchQuery} />
     </>
   )
 }
