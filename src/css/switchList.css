@@ -9,6 +9,10 @@
   background-color: #fff0;
 }
 
+.float-button:focus {
+  outline: none;
+}
+
 .float-icon {
   filter: opacity(30%) grayscale(100%);
 }
@@ -17,7 +21,7 @@
   filter: opacity(100%) grayscale(0%);
 }
 
-.float-button:hover>.float-icon {
+.float-button:hover>.float-icon, .float-button:focus>.float-icon {
   filter: opacity(100%) grayscale(100%);
 }
 

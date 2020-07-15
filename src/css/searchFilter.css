@@ -10,11 +10,16 @@ select {
   -moz-appearance: none;
   -webkit-appearance: none;
   appearance: none;
-  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAAy0lEQVRIie3TPWoCURSG4QcSELuElLOCWNgGxC3YuYDpXIBFtpAV2MU+nVuIjQtwBRZWYjpBUJw0x4TIhKhzSTUvnGbud17O/RlqalIyRJbAk4XrBzkKLNCqIG+FowjnF3d4j4UPdK+QP2EVjhkeTgMNvEVgi/4F8h420TtB87fgDUYR3GNwhjzHLnpecXvORM84RNNLgtyfk41PJrtmp6WUnW2Vuyqlg3UIp1FFfOtUlR959P2+CyzRTiU/kmEeleKPL+U+qqbmH/kEO341nt7A5z4AAAAASUVORK5CYII=');
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADQAAAA0CAYAAADFeBvrAAAABmJLR0QA/wD/AP+gvaeTAAADnElEQVRoge2YT2/bdBjHP0+KXbSO4yS47mKbN4AmLrwAhLhswASxu1JYR+lGy7Q/DDYJaWJSoXRrt5aVykkHCE4IkODYK2+AODd4DyBhm+bh0KbJmjT5ubERB39OyU9f/57vJ7Itx1BSUlJSUlJSUlLyP0H6Lb7xbPJcpcUKwgSt1tVa88kf/uti/fCdv19CKneAP1sVZrd+s389mOkR8p30eUR/Bp7aW9pRmKpHdq3gvgMJvPhVVdkCnthb+kuQF8PI2u7OVbq/9JEBGBPY9J1kstDGAwjc+OwBGYAJRX8K3PSF7uy+UNVNTyH6C4/LdHLCRuAm04U0HkDgJtNKj0ybCUV/rLrpqfbCvpCgm8DxAXtXFNZ9J5nJr+5gfCeZUVjnwJl0gOMi+mX7S3fwhMEMQVj1nWTuqCVN8Z1kDmGVQ25cj6Gd7vtCKnxkOEsQln03Xcjc0hDfTRcQljGRAVS42f68L1Rv2PdB3jcfq4uBl36YoacRgZNeBl00ryE3drvv0vMLVN10XtBPTfcT1Tthc/yqcYEBVL30iqh+YppX5IN6ZN3uXuu52OqR9RnCvPGmIlcCJzYucRiBG9/KIgNy/aAMDDhHAy+5pMqS+QBdrEXjl83zHXwv/hiVG6Z5Qa6FkdVXfuBFFzjJeRXuD8t1sVSLrAUQNS3nu/FtkGuGcRVhPmzYnx8WGFq06iZvCzwwye5tuB5G1sxwKZXAS5dUuWiyL6CqvFdv2stD5g/Hd5O3gDXTvMLDk5F1/hbSOiQhvpveBWZN9gMU5VKtad8dFjQ9lbJLCZsnG9Z0r5RK4KQrKlwwHK0CF8PIvmcSNhaC9nMVawx+FOnmmz+etqrb2/IPwGl07JibbgCB4fGqMFeP7BXTjpmEAKpe8qbo0OerzgDl29+fsV4/sY0ec9NNoGo4ShHerTXs1Sz9MgtB9hsFwncAKGcMR6jCTD2y17N2O5IQgO8lUyhfYH76maIqzHY/zmThyEIAgZOcU+Eh+UmNJAMjCkGuUoryTq1pPxhlk5GFAHwnmUTY4OhSKsqFsGmvjdolFyEA341fY/ev8ljGQ1sCU2Fkh3n0yE0I+r6ZGUbub5RyFQKoevErovKI4VI7COdqDbue5/zchcBIqhAZKEgIwHfiM4h8Ra/UjgiTYcPeKmJuYUIAgROfVpGv6UjtqGpQb44/KmpmoUIAgRe/rFq5h6pKRefCxvj3Rc8sKSkpKSkpKenPv0eJRwyXGhbJAAAAAElFTkSuQmCC');
   background-repeat: no-repeat, repeat;
   background-position: right 0.4em top 50%, 0 0;
   background-size: 1.05em auto, 100%;
   padding-right: 68px !important;
+  filter: grayscale(100%);
+}
+
+select:hover, select:focus {
+  filter: none;
 }
 
 select::-ms-expand {
@@ -23,7 +28,6 @@ select::-ms-expand {
 
 select option {
   font-weight: normal;
-  color: #222;
 }
 
 .form-container {
