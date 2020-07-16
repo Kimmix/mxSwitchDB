@@ -1,14 +1,14 @@
-import React from "react";
-import styled from "styled-components";
-import { useMotionValue } from "framer-motion";
+import React from "react"
+import styled from "styled-components"
+import { useMotionValue } from "framer-motion"
 
-import { ContextProvider } from "./Context";
-import Track from "./Track";
-import Item from "./Item";
+import { ContextProvider } from "./Context"
+import Track from "./Track"
+import Item from "./Item"
 
 const Wrapper = styled.div`
   overflow: ${props => props.overflow};
-`;
+`
 
 const MotionSlider = ({
   children,
@@ -17,9 +17,9 @@ const MotionSlider = ({
   velocity,
   transition,
   allowSlideToLast,
-  overflow
+  overflow,
 }) => {
-  const x = useMotionValue(0);
+  const x = useMotionValue(0)
 
   return (
     <ContextProvider>
@@ -40,8 +40,8 @@ const MotionSlider = ({
         </Track>
       </Wrapper>
     </ContextProvider>
-  );
-};
+  )
+}
 
 MotionSlider.defaultProps = {
   padding: 40,
@@ -49,7 +49,7 @@ MotionSlider.defaultProps = {
   velocity: 0.3,
   transition: { stiffness: 300, damping: 600, mass: 3 },
   allowSlideToLast: true,
-  overflow: "visible"
-};
+  overflow: "visible",
+}
 
-export default MotionSlider;
+export default MotionSlider

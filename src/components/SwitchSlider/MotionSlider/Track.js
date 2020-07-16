@@ -1,10 +1,10 @@
-import React, { useContext, useEffect } from "react";
-import styled from "styled-components";
-import { motion, useAnimation } from "framer-motion";
-import useDimensions from "react-use-dimensions";
-import useWindowSize from "@rehooks/window-size";
+import React, { useContext, useEffect } from "react"
+import styled from "styled-components"
+import { motion, useAnimation } from "framer-motion"
+import useDimensions from "react-use-dimensions"
+import useWindowSize from "@rehooks/window-size"
 
-import { Context } from "./Context";
+import { Context } from "./Context"
 
 const TrackWrapper = styled(motion.div)`
   display: flex;
@@ -17,7 +17,7 @@ const TrackWrapper = styled(motion.div)`
   &:active {
     cursor: grabbing;
   }
-`;
+`
 
 const Track = ({
   children,
@@ -26,43 +26,43 @@ const Track = ({
   velocity,
   transition,
   allowSlideToLast,
-  style
+  style,
 }) => {
-  const [trackRef, trackDimensions] = useDimensions({ liveMeasure: false });
-  const windowDimensions = useWindowSize();
-  const controls = useAnimation();
+  const [trackRef, trackDimensions] = useDimensions({ liveMeasure: false })
+  const windowDimensions = useWindowSize()
+  const controls = useAnimation()
 
-  const { state, dispatch } = useContext(Context);
+  const { state, dispatch } = useContext(Context)
 
-  console.log(state);
+  console.log(state)
   const negativeItems = state.items.map(
     item => item * -1 + trackDimensions.x || 0
-  );
+  )
 
-  const lastTwo = state.items.slice(-2);
-  const lastItem = lastTwo[1] - lastTwo[0];
+  const lastTwo = state.items.slice(-2)
+  const lastItem = lastTwo[1] - lastTwo[0]
 
   function onDragEnd(event, info) {
-    const offset = info.offset.x;
-    const correctedVelocity = info.velocity.x * velocity;
+    const offset = info.offset.x
+    const correctedVelocity = info.velocity.x * velocity
 
-    const direction = correctedVelocity < 0 || offset < 0 ? 1 : -1;
-    const startPosition = info.point.x - offset;
+    const direction = correctedVelocity < 0 || offset < 0 ? 1 : -1
+    const startPosition = info.point.x - offset
 
     const endOffset =
       direction === 1
         ? Math.min(correctedVelocity, offset)
-        : Math.max(correctedVelocity, offset);
-    const endPosition = startPosition + endOffset;
+        : Math.max(correctedVelocity, offset)
+    const endPosition = startPosition + endOffset
 
     const closestPosition = negativeItems.reduce((prev, curr) =>
       Math.abs(curr - endPosition) < Math.abs(prev - endPosition) ? curr : prev
-    );
+    )
 
-    console.log(negativeItems);
+    console.log(negativeItems)
 
-    const activeSlide = negativeItems.indexOf(closestPosition);
-    dispatch({ type: "SET_ACTIVE_ITEM", activeItem: activeSlide });
+    const activeSlide = negativeItems.indexOf(closestPosition)
+    dispatch({ type: "SET_ACTIVE_ITEM", activeItem: activeSlide })
 
     controls.start({
       x: allowSlideToLast
@@ -79,9 +79,9 @@ const Track = ({
         velocity: info.velocity.x,
         stiffness: transition.stiffness,
         damping: transition.damping,
-        mass: transition.mass
-      }
-    });
+        mass: transition.mass,
+      },
+    })
   }
 
   return (
@@ -98,13 +98,13 @@ const Track = ({
             trackDimensions.width -
             // TODO: real track wrapper left/right offsets that should be live!
             (trackDimensions.x + trackDimensions.x),
-        right: 0
+        right: 0,
       }}
       onDragEnd={onDragEnd}
     >
       {children}
     </TrackWrapper>
-  );
-};
+  )
+}
 
-export default Track;
+export default Track

@@ -1,9 +1,9 @@
-import React, { useContext, useEffect } from "react";
-import styled from "styled-components";
-import { motion, useTransform } from "framer-motion";
-import useDimensios from "react-use-dimensions";
+import React, { useContext, useEffect } from "react"
+import styled from "styled-components"
+import { motion, useTransform } from "framer-motion"
+import useDimensios from "react-use-dimensions"
 
-import { Context } from "./Context";
+import { Context } from "./Context"
 
 const ItemWrapper = styled(motion.div)`
   flex: 0 0 auto;
@@ -11,13 +11,13 @@ const ItemWrapper = styled(motion.div)`
   &:not(:last-child) {
     margin-right: ${props => props.gap}px;
   }
-`;
+`
 
-const MotionWrapper = styled(motion.div)``;
+const MotionWrapper = styled(motion.div)``
 
 const Item = ({ children, gap, padding, index, offset }) => {
-  const { dispatch } = useContext(Context);
-  const [itemRef, { x }] = useDimensios({ liveMeasure: false });
+  const { dispatch } = useContext(Context)
+  const [itemRef, { x }] = useDimensios({ liveMeasure: false })
 
   // const opacity = useTransform(
   //   offset,
@@ -33,15 +33,15 @@ const Item = ({ children, gap, padding, index, offset }) => {
 
   useEffect(() => {
     if (x !== undefined) {
-      dispatch({ type: "ADD_ITEM", item: x - padding });
+      dispatch({ type: "ADD_ITEM", item: x - padding })
     }
-  }, [x, dispatch, padding]);
+  }, [x, dispatch, padding])
 
   return (
     <ItemWrapper ref={itemRef} gap={gap} /* style={{ opacity }} */>
       <MotionWrapper>{children}</MotionWrapper>
     </ItemWrapper>
-  );
-};
+  )
+}
 
-export default Item;
+export default Item
