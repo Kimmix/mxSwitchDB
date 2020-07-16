@@ -47,12 +47,20 @@ select option {
 .row {
   display: flex;
   width: 100%;
+  flex-wrap: wrap;
 }
 
 .row .left-row {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .row .right-row {
   display: flex;
+}
+
+@media only screen and (max-width: 600px) {
+  .search-layout {
+    display: none;
+  }
 }

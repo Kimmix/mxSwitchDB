@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react"
 import { useQueryParams, StringParam } from "use-query-params"
 
-import MotionSlider from "./MotionSlider";
-import Card from "./card";
+import MotionSlider from "./MotionSlider"
+import Card from "./card"
 import { blueBug } from "../../resource/icons"
 import switchDB from "../../resource/switchDB.json"
 import DebugMode from "./debugMode"
@@ -45,13 +45,21 @@ const SwitchList = () => {
     mode = <DebugMode dataList={switchData} queryTime={queryTime} />
   } else {
     mode = (
-      <div style={{margin: '0 -90px'}} >
-        <MotionSlider>
-          {switchData.map((data) => (
-          <div key={data.id}>
-            <Card data={data} />
-          </div>
-        ))}
+      <div className="silder-container">
+        {/* <MotionSlider>
+          {switchData.map(data => (
+            <div key={data.id}>
+              <Card data={data} />
+            </div>
+          ))}
+        </MotionSlider> */}
+        <MotionSlider padding={30} gap={30}>
+          {/* {[...Array(20)].map((item, i) => (
+            <div style={{width: '260px', height: '400px', background: 'blue'}} />
+          ))} */}
+          {switchData.map(data => (
+            <Card data={data} key={data.id} />
+          ))}
         </MotionSlider>
       </div>
     )

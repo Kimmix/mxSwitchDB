@@ -33,11 +33,11 @@ body::-webkit-scrollbar-thumb {
   background: #6649b8;
 }
 
-main {
+/* main {
   padding: 1rem;
   max-width: 100vw;
   overflow-x: hidden;
-}
+} */
 
 .navbar {
   position: fixed;

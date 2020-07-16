@@ -25,30 +25,14 @@
   filter: opacity(100%) grayscale(100%);
 }
 
-ul.breadcrumb {
-  padding: 10px 16px;
-  list-style: none;
+.silder-container {
+  margin: 0 -90px;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
-ul.breadcrumb li {
-  display: inline;
-  color: #8c8c8c;
-  font-size: 2em;
-  text-transform: capitalize;
-}
-
-ul.breadcrumb li:hover {
-  color: #01447e;
-  cursor: pointer;
-}
-
-ul.breadcrumb li+li:before {
-  padding-left: 8px;
-  color: black;
-  content: "/\00a0";
-}
-
-ul.breadcrumb li:hover:last-child {
-  color: #8c8c8c;
-  cursor: default;
+@media only screen and (max-width: 600px) {
+  .silder-container {
+    margin: 0;
+  }
 }
