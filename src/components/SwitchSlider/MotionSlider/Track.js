@@ -1,8 +1,7 @@
-import React, { useContext, useEffect } from "react"
+import React, { useContext } from "react"
 import styled from "styled-components"
 import { motion, useAnimation } from "framer-motion"
 import useDimensions from "react-use-dimensions"
-import useWindowSize from "@rehooks/window-size"
 
 import { Context } from "./Context"
 
@@ -25,11 +24,9 @@ const Track = ({
   gap,
   velocity,
   transition,
-  allowSlideToLast,
   style,
 }) => {
   const [trackRef, trackDimensions] = useDimensions({ liveMeasure: false })
-  const windowDimensions = useWindowSize()
   const controls = useAnimation()
 
   const { state, dispatch } = useContext(Context)
@@ -65,15 +62,7 @@ const Track = ({
     dispatch({ type: "SET_ACTIVE_ITEM", activeItem: activeSlide })
 
     controls.start({
-      x: allowSlideToLast
-        ? closestPosition
-        : Math.max(
-            closestPosition,
-            windowDimensions.innerWidth -
-              trackDimensions.width -
-              // TODO: real track wrapper left/right offsets that should be live!
-              (trackDimensions.x + trackDimensions.x)
-          ),
+      x: closestPosition,
       transition: {
         type: "spring",
         velocity: info.velocity.x,
@@ -92,12 +81,7 @@ const Track = ({
       animate={controls}
       drag="x"
       dragConstraints={{
-        left: allowSlideToLast
-          ? lastItem + gap - trackDimensions.width
-          : windowDimensions.innerWidth -
-            trackDimensions.width -
-            // TODO: real track wrapper left/right offsets that should be live!
-            (trackDimensions.x + trackDimensions.x),
+        left: lastItem + gap - trackDimensions.width,
         right: 0,
       }}
       onDragEnd={onDragEnd}

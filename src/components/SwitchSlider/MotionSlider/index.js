@@ -16,7 +16,6 @@ const MotionSlider = ({
   gap,
   velocity,
   transition,
-  allowSlideToLast,
   overflow,
 }) => {
   const x = useMotionValue(0)
@@ -28,7 +27,6 @@ const MotionSlider = ({
           padding={padding}
           velocity={velocity}
           transition={transition}
-          allowSlideToLast={allowSlideToLast}
           overflow={overflow}
           style={{ x }}
         >
@@ -48,7 +46,6 @@ MotionSlider.defaultProps = {
   gap: 40,
   velocity: 0.3,
   transition: { stiffness: 300, damping: 600, mass: 3 },
-  allowSlideToLast: true,
   overflow: "visible",
 }
 
