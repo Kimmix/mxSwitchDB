@@ -23,6 +23,7 @@ export default function Card(props) {
       <p className="subHeader">Bottom</p>
       <p className="desc">{props.data.travel + "mm" || "nan"}</p>
       <p className="subHeader">Travel</p>
+      <p className="type">{props.data.type} </p>
     </div>
   )
 }

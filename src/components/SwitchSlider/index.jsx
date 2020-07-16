@@ -46,14 +46,7 @@ const SwitchList = () => {
   } else {
     mode = (
       <div className="silder-container">
-        {/* <MotionSlider>
-          {switchData.map(data => (
-            <div key={data.id}>
-              <Card data={data} />
-            </div>
-          ))}
-        </MotionSlider> */}
-        <MotionSlider padding={30} gap={30}>
+        <MotionSlider children={switchData} padding={30} gap={30}>
           {/* {[...Array(20)].map((item, i) => (
             <div style={{width: '260px', height: '400px', background: 'blue'}} />
           ))} */}
@@ -65,17 +58,21 @@ const SwitchList = () => {
     )
   }
 
+  const FABDebug = (
+    <button className="float-button" onClick={() => setDebugMode(!isDebug)}>
+      <img
+        src={blueBug}
+        className={isDebug ? "float-icon active" : "float-icon"}
+        alt="Debug icon"
+        style={{ height: "20px" }}
+      />
+    </button>
+  )
+
   return (
     <>
       <div className="switchList-layout">{mode}</div>
-      <button className="float-button" onClick={() => setDebugMode(!isDebug)}>
-        <img
-          src={blueBug}
-          className={isDebug ? "float-icon active" : "float-icon"}
-          alt="Debug icon"
-          style={{ height: "20px" }}
-        />
-      </button>
+      {FABDebug}
     </>
   )
 }

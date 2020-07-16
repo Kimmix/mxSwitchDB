@@ -1,8 +1,14 @@
 .card-ui {
-  background-color: yellow;
-  padding: 1em;
   width: 250px;
   height: 550px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 20px 0px;
+  border-radius: 14px;
+  padding: 1em;
+}
+
+.card-ui .img-container {
+  text-align: center;
 }
 
 .card-ui .header {
@@ -17,6 +23,17 @@
 
 .card-ui .desc {
   font-size: 1.7em;
+}
+
+.card-ui .type {
+  font-size: 3em;
+  color: #e6e6e6;
+  writing-mode: vertical-lr;
+  text-transform: capitalize;
+  /* transform: rotate(-180deg); */
+  position: relative;
+  left: 150px;
+  bottom: 160px;
 }
 
 .responsive-img {

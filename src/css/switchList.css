@@ -21,13 +21,13 @@
   filter: opacity(100%) grayscale(0%);
 }
 
-.float-button:hover>.float-icon, .float-button:focus>.float-icon {
+.float-button:hover>.float-icon {
   filter: opacity(100%) grayscale(100%);
 }
 
 .silder-container {
   margin: 0 -90px;
-  max-width: 100%;
+  max-width: 100vw;
   overflow-x: hidden;
 }
 
