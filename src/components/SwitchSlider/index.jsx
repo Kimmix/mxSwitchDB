@@ -47,9 +47,6 @@ const SwitchList = () => {
     mode = (
       <div className="silder-container">
         <MotionSlider children={switchData} padding={30} gap={30}>
-          {/* {[...Array(20)].map((item, i) => (
-            <div style={{width: '260px', height: '400px', background: 'blue'}} />
-          ))} */}
           {switchData.map(data => (
             <Card data={data} key={data.id} />
           ))}
