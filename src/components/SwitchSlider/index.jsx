@@ -7,7 +7,27 @@ import Card from "./card"
 import { blueBug } from "../../resource/icons"
 import switchDB from "../../resource/switchDB.json"
 import DebugMode from "./debugMode"
-// import "../../css/switchList.css"
+
+const FABButton = styled.button`
+  background-color: #fff0;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  padding: 1em;
+  border: none;
+  cursor: pointer;
+  z-index: 999;
+  &:hover, &:focus {
+    outline: none;
+  }
+  & img {
+    height: 25px;
+    filter: ${props => props.isDebug ? "opacity(100%) grayscale(0%)" : "opacity(30%) grayscale(100%)"};
+  }
+  &:hover img {
+    filter: opacity(100%) grayscale(100%);
+  }
+`
 
 const SwitchList = () => {
   const [isDebug, setDebugMode] = useState(false)
@@ -56,31 +76,10 @@ const SwitchList = () => {
     )
   }
 
-  const FABButton = styled.button`
-    background-color: #fff0;
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    padding: 1em;
-    border: none;
-    cursor: pointer;
-    z-index: 999;
-    &:hover {
-      outline: none;
-    }
-    & img {
-      height: 25px;
-      filter: ${isDebug ? "opacity(100%) grayscale(0%)" : "opacity(30%) grayscale(100%)"};
-    }
-    &:hover img {
-      filter: opacity(100%) grayscale(100%);
-    }
-  `
-
   return (
     <>
       <div className="switchList-layout">{mode}</div>
-      <FABButton onClick={() => setDebugMode(!isDebug)}>
+      <FABButton isDebug={isDebug} onClick={() => setDebugMode(!isDebug)}>
         <img src={blueBug} alt="Debug icon" />
       </FABButton>
     </>

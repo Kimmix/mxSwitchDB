@@ -6,6 +6,69 @@ import SwitchSlider from "../SwitchSlider"
 import useDebounce from "./use-debounce"
 import { expendArrow } from "../../resource/icons";
 
+const Row = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+`;
+
+const FormContainer = styled.form`
+  display: flex;
+  flex-direction: column;
+`;
+
+const SubTitle = styled.p`
+  margin: 6px 0;
+  color: #4f4f4f;
+`;
+
+const StyledInput = styled.input`
+  background: #EFEFEF;
+  border: none;
+  font-size: 14px;
+  font-weight: 700;
+  color: #444;
+  padding: 0.3em 0.6em;
+  margin: 0em 0.6em 0.7em 0em;
+  &:hover, &:focus {
+    outline: none;
+    background-color: #e6e6e6;
+  }
+`;
+
+const StyledSelect = styled.select`
+  border: none;
+  font-size: 14px;
+  font-weight: 700;
+  color: #444;
+  padding: 0.3em 0.6em;
+  margin: 0em 0.6em 0.7em 0em;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  background: #EFEFEF;
+  background-image: url(${expendArrow});
+  background-repeat: no-repeat, repeat;
+  background-position: right 0.4em top 50%, 0 0;
+  background-size: 1.05em auto, 100%;
+  padding-right: 68px !important;
+  filter: grayscale(100%);
+  &:hover, &:focus {
+    filter: none;
+    outline: none;
+    background-color: #e6e6e6;
+  }
+  &::-ms-expand {
+    display: none;
+  }
+  & option {
+    font-weight: normal;
+  }
+  & option:hover, & option:focus {
+    outline: none;
+  }
+`
+
 const SearchFilter = () => {
   const textInput = useRef(null);
   const [searchQuery, setSearchQuery] = useState({
@@ -42,69 +105,6 @@ const SearchFilter = () => {
     }
     return queryParam
   }
-
-  const Row = styled.form`
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  `;
-
-  const FormContainer = styled.form`
-    display: flex;
-    flex-direction: column;
-  `;
-
-  const SubTitle = styled.p`
-    margin: 6px 0;
-    color: #4f4f4f;
-  `;
-
-  const StyledInput = styled.input`
-    background: #EFEFEF;
-    border: none;
-    font-size: 14px;
-    font-weight: 700;
-    color: #444;
-    padding: 0.3em 0.6em;
-    margin: 0em 0.6em 0.7em 0em;
-    &:hover, &:focus {
-      outline: none;
-      background-color: #e6e6e6;
-    }
-  `;
-
-  const StyledSelect = styled.select`
-    border: none;
-    font-size: 14px;
-    font-weight: 700;
-    color: #444;
-    padding: 0.3em 0.6em;
-    margin: 0em 0.6em 0.7em 0em;
-    -moz-appearance: none;
-    -webkit-appearance: none;
-    appearance: none;
-    background: #EFEFEF;
-    background-image: url(${expendArrow});
-    background-repeat: no-repeat, repeat;
-    background-position: right 0.4em top 50%, 0 0;
-    background-size: 1.05em auto, 100%;
-    padding-right: 68px !important;
-    filter: grayscale(100%);
-    &:hover, &:focus {
-      filter: none;
-      outline: none;
-      background-color: #e6e6e6;
-    }
-    &::-ms-expand {
-      display: none;
-    }
-    & option {
-      font-weight: normal;
-    }
-    & option:hover, & option:focus {
-      outline: none;
-    }
-  `
 
   return (
     <>
@@ -151,9 +151,7 @@ const SearchFilter = () => {
                 name="sort"
                 style={{ borderRadius: "10px" }}
                 value={sorting}
-                onChange={e => {
-                  setSorting(e.target.value)
-                }}
+                onChange={e => { setSorting(e.target.value) }}
               >
                 <option value="">Sort by: A-Z</option>
                 <option value="alpha">A-Z</option>
