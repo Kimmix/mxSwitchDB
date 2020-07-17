@@ -1,11 +1,13 @@
-import React, { useState, useEffect } from "react"
+import React, { useRef, useState, useEffect } from "react"
 import { navigate } from "gatsby"
+import styled from "styled-components"
 
 import SwitchSlider from "../SwitchSlider"
 import useDebounce from "./use-debounce"
-import "../../css/searchFilter.css"
+import { expendArrow } from "../../resource/icons";
 
 const SearchFilter = () => {
+  const textInput = useRef(null);
   const [searchQuery, setSearchQuery] = useState({
     search: "",
     manufacturer: "",
@@ -41,38 +43,100 @@ const SearchFilter = () => {
     return queryParam
   }
 
+  const Row = styled.form`
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  `;
+
+  const FormContainer = styled.form`
+    display: flex;
+    flex-direction: column;
+  `;
+
+  const SubTitle = styled.p`
+    margin: 6px 0;
+    color: #4f4f4f;
+  `;
+
+  const StyledInput = styled.input`
+    background: #EFEFEF;
+    border: none;
+    font-size: 14px;
+    font-weight: 700;
+    color: #444;
+    padding: 0.3em 0.6em;
+    margin: 0em 0.6em 0.7em 0em;
+    &:hover, &:focus {
+      outline: none;
+      background-color: #e6e6e6;
+    }
+  `;
+
+  const StyledSelect = styled.select`
+    border: none;
+    font-size: 14px;
+    font-weight: 700;
+    color: #444;
+    padding: 0.3em 0.6em;
+    margin: 0em 0.6em 0.7em 0em;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    background: #EFEFEF;
+    background-image: url(${expendArrow});
+    background-repeat: no-repeat, repeat;
+    background-position: right 0.4em top 50%, 0 0;
+    background-size: 1.05em auto, 100%;
+    padding-right: 68px !important;
+    filter: grayscale(100%);
+    &:hover, &:focus {
+      filter: none;
+      outline: none;
+      background-color: #e6e6e6;
+    }
+    &::-ms-expand {
+      display: none;
+    }
+    & option {
+      font-weight: normal;
+    }
+    & option:hover, & option:focus {
+      outline: none;
+    }
+  `
+
   return (
     <>
       <div className="search-layout">
-        <p style={{ margin: "6px 0", color: "#4f4f4f", fontSize: "0.9em" }}>
-          Search filter
-        </p>
-        <form className="form-container">
-          <div className="row">
-            <input
+        <SubTitle>Search filter</SubTitle>
+        <FormContainer>
+          <Row>
+            <StyledInput
               name="search"
-              className="myStyle"
               type="text"
               placeholder="Search"
+              ref={textInput}
               value={searchQuery.search}
               onChange={handleChange}
+              onMouseEnter={() => {
+                textInput.current.focus()
+              }}
             />
-          </div>
-          <div className="row" style={{ justifyContent: "space-between" }}>
-            <div className="left-row">
-              <select
+          </Row>
+          <Row>
+            <Row>
+              <StyledSelect
                 name="manufacturer"
-                className="myStyle"
                 value={searchQuery.manufacturer}
                 onChange={handleChange}
               >
                 <option value="">Select manufacturer</option>
                 <option value="gateron">Gateron</option>
                 <option value="cherry">Cherry</option>
-              </select>
-              <select
+              </StyledSelect>
+              <StyledSelect
                 name="type"
-                className="myStyle"
                 value={searchQuery.type}
                 onChange={handleChange}
               >
@@ -80,12 +144,11 @@ const SearchFilter = () => {
                 <option value="clicky">Clicky</option>
                 <option value="tactile">Tactile</option>
                 <option value="linear">Linear</option>
-              </select>
-            </div>
-            <div className="right-row">
-              <select
+              </StyledSelect>
+            </Row>
+            <Row>
+              <StyledSelect
                 name="sort"
-                className="myStyle"
                 style={{ borderRadius: "10px" }}
                 value={sorting}
                 onChange={e => {
@@ -95,10 +158,10 @@ const SearchFilter = () => {
                 <option value="">Sort by: A-Z</option>
                 <option value="alpha">A-Z</option>
                 <option value="id">Id</option>
-              </select>
-            </div>
-          </div>
-        </form>
+              </StyledSelect>
+            </Row>
+          </Row>
+        </FormContainer>
       </div>
       <SwitchSlider searchQuery={searchQuery} />
     </>

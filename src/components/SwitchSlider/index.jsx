@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react"
 import { useQueryParams, StringParam } from "use-query-params"
+import styled from "styled-components"
 
 import MotionSlider from "./MotionSlider"
 import Card from "./card"
 import { blueBug } from "../../resource/icons"
 import switchDB from "../../resource/switchDB.json"
 import DebugMode from "./debugMode"
-import "../../css/switchList.css"
+// import "../../css/switchList.css"
 
 const SwitchList = () => {
   const [isDebug, setDebugMode] = useState(false)
@@ -55,21 +56,33 @@ const SwitchList = () => {
     )
   }
 
-  const FABDebug = (
-    <button className="float-button" onClick={() => setDebugMode(!isDebug)}>
-      <img
-        src={blueBug}
-        className={isDebug ? "float-icon active" : "float-icon"}
-        alt="Debug icon"
-        style={{ height: "20px" }}
-      />
-    </button>
-  )
+  const FABButton = styled.button`
+    background-color: #fff0;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    padding: 1em;
+    border: none;
+    cursor: pointer;
+    z-index: 999;
+    &:hover {
+      outline: none;
+    }
+    & img {
+      height: 25px;
+      filter: ${isDebug ? "opacity(100%) grayscale(0%)" : "opacity(30%) grayscale(100%)"};
+    }
+    &:hover img {
+      filter: opacity(100%) grayscale(100%);
+    }
+  `
 
   return (
     <>
       <div className="switchList-layout">{mode}</div>
-      {FABDebug}
+      <FABButton onClick={() => setDebugMode(!isDebug)}>
+        <img src={blueBug} alt="Debug icon" />
+      </FABButton>
     </>
   )
 }
