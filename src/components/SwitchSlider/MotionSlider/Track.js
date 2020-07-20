@@ -56,7 +56,7 @@ const Track = ({
       Math.abs(curr - endPosition) < Math.abs(prev - endPosition) ? curr : prev
     )
 
-    console.log(negativeItems)
+    // console.log(negativeItems)
 
     const activeSlide = negativeItems.indexOf(closestPosition)
     dispatch({ type: "SET_ACTIVE_ITEM", activeItem: activeSlide })

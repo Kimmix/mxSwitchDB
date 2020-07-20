@@ -59,6 +59,7 @@ const SwitchList = () => {
     let start = performance.now()
     setSwitchData(filterData(switchDB, query))
     setQueryTime(performance.now() - start)
+    console.log("Query update");
   }, [query])
 
   let mode

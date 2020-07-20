@@ -31,7 +31,7 @@ const MotionSlider = ({
           style={{ x }}
         >
           {children.map((child, i) => (
-            <Item key={i} gap={gap} padding={padding} index={i} offset={x}>
+            <Item key={child.props.data.id} gap={gap} padding={padding} index={i} offset={x}>
               {child}
             </Item>
           ))}

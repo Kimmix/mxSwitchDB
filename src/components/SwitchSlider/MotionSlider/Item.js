@@ -25,11 +25,11 @@ const Item = ({ children, gap, padding, index, offset }) => {
   //   [0.2, 1, 0.2]
   // );
 
-  // const scale = useTransform(
-  //   offset,
-  //   [(index - 1) * -300, index * -300, (index + 1) * -300],
-  //   [0.8, 1, 0.8]
-  // );
+  const scale = useTransform(
+    offset,
+    [(index - 1) * -300, index * -300, (index + 1) * -300],
+    [0.8, 1, 0.8]
+  );
 
   useEffect(() => {
     if (x !== undefined) {
@@ -38,7 +38,7 @@ const Item = ({ children, gap, padding, index, offset }) => {
   }, [x, dispatch, padding])
 
   return (
-    <ItemWrapper ref={itemRef} gap={gap} /* style={{ opacity }} */>
+    <ItemWrapper ref={itemRef} gap={gap} style={{ scale }}>
       <MotionWrapper>{children}</MotionWrapper>
     </ItemWrapper>
   )
