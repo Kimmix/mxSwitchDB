@@ -65,15 +65,21 @@ const SwitchList = () => {
   if (isDebug) {
     mode = <DebugMode dataList={switchData} queryTime={queryTime} />
   } else {
-    mode = (
-      <div className="silder-container">
-        <MotionSlider children={switchData} padding={30} gap={30}>
-          {switchData.map(data => (
-            <Card data={data} key={data.id} />
-          ))}
-        </MotionSlider>
-      </div>
-    )
+    if (switchData.length > 0) {
+      mode = (
+        <div className="silder-container">
+          <MotionSlider children={switchData} padding={30} gap={30}>
+            {switchData.map(data => (
+              <Card data={data} key={data.id} />
+            ))}
+          </MotionSlider>
+        </div>
+      )
+    } else {
+      mode = (
+        <h1>No data</h1>
+      )
+    }
   }
 
   return (
