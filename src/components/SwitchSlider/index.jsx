@@ -1,12 +1,11 @@
-import React, { useState, useEffect } from "react"
-import { useQueryParams, StringParam } from "use-query-params"
+import React, { useEffect, useState } from "react"
 import styled from "styled-components"
-
-import MotionSlider from "./MotionSlider"
-import Card from "./card"
+import { StringParam, useQueryParams } from "use-query-params"
 import { blueBug } from "../../resource/icons"
 import switchDB from "../../resource/switchDB.json"
+import Card from "./card"
 import DebugMode from "./debugMode"
+import MotionSlider from "./MotionSlider"
 
 const FABButton = styled.button`
   background-color: #fff0;
@@ -17,12 +16,16 @@ const FABButton = styled.button`
   border: none;
   cursor: pointer;
   z-index: 999;
-  &:hover, &:focus {
+  &:hover,
+  &:focus {
     outline: none;
   }
   & img {
     height: 25px;
-    filter: ${props => props.isDebug ? "opacity(100%) grayscale(0%)" : "opacity(30%) grayscale(100%)"};
+    filter: ${props =>
+      props.isDebug
+        ? "opacity(100%) grayscale(0%)"
+        : "opacity(30%) grayscale(100%)"};
   }
   &:hover img {
     filter: opacity(100%) grayscale(100%);
@@ -76,9 +79,7 @@ const SwitchList = () => {
         </div>
       )
     } else {
-      mode = (
-        <h1>No data</h1>
-      )
+      mode = <h1>No data</h1>
     }
   }
 

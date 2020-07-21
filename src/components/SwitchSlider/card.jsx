@@ -43,7 +43,10 @@ const Card = props => {
     <CardUi>
       <CardImg>
         <img
-          src={props.data.imgSrc || `https://via.placeholder.com/150?text=${props.data.name}`}
+          src={
+            props.data.imgSrc ||
+            `https://via.placeholder.com/150?text=${props.data.name}`
+          }
           alt={props.data.name}
         ></img>
       </CardImg>

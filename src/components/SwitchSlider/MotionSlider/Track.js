@@ -18,14 +18,7 @@ const TrackWrapper = styled(motion.div)`
   }
 `
 
-const Track = ({
-  children,
-  padding,
-  gap,
-  velocity,
-  transition,
-  style,
-}) => {
+const Track = ({ children, padding, gap, velocity, transition, style }) => {
   const [trackRef, trackDimensions] = useDimensions({ liveMeasure: false })
   const controls = useAnimation()
 
